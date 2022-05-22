@@ -1,0 +1,6 @@
+body {
+    background: red
+}
+
+@import url(./block/news.css);
+@import url(./block/title.css);
