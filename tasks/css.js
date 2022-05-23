@@ -3,12 +3,22 @@ const plumber = require("gulp-plumber");
 const concat = require("gulp-concat");
 const path = require("../config/path")
 const modul = require("../config/module");
-const importcss = require("gulp-cssimport")
+const importcss = require("gulp-cssimport");
+const autoprefixer = require("gulp-autoprefixer");
+const shorthand = require("gulp-shorthand");
+const csso = require("gulp-csso");
+const rename = require("gulp-rename");
+const media = require("gulp-group-css-media-queries"); 
 const css = () => {
-    return src(path.css.src)
+    return src(path.css.src, {sourcemaps:true})
         .pipe(concat("main.css"))
         .pipe(importcss())
-        .pipe(plumber(modul.error))
-        .pipe(dest(path.css.dest))
+        .pipe(autoprefixer())
+        .pipe(shorthand())
+        .pipe(media())
+        .pipe(dest(path.css.dest, {sourcemaps:true}))
+        .pipe(rename({suffix:".min"}))
+        .pipe(csso())
+        .pipe(dest(path.css.dest, {sourcemaps:true}))
 }
 module.exports = css

@@ -1,0 +1,18 @@
+$base-font-size:50px;
+@mixin max700{
+    @media(max-width:700px){
+     @content;
+    }  
+}
+
+body {
+    background: blue;
+    font-size:$base-font-size;
+}
+@include max700{
+    p{
+        width:50%;
+    }
+};
+@import url(./block/news.css);
+@import url(./block/title.css);

@@ -3,6 +3,7 @@ const browserSync = require("browser-sync").create();
 const html = require('./tasks/html');
 const clear = require('./tasks/clear');
 const css = require('./tasks/css');
+const sass = require('./tasks/sass');
 const path = require("./config/path")
 const server = () => {
 
@@ -15,13 +16,14 @@ const server = () => {
 }
 const watcher = () => {
     watch(path.html.watch, html).on("all", browserSync.reload)
-    watch(path.css.watch, css).on("all", browserSync.reload)
+    watch(path.sass.watch, sass).on("all", browserSync.reload)
 }
 
 exports.watcher = watcher
 exports.css = css
+exports.sass = sass
 exports.dev = series(
     clear,
-    parallel(css, html),
+    parallel(sass, html),
     parallel(watcher, server)
 )
