@@ -6,8 +6,10 @@ const shorthand = require("gulp-shorthand");
 const csso = require("gulp-csso");
 const rename = require("gulp-rename");
 const media = require("gulp-group-css-media-queries"); 
+var sassGlob = require('gulp-sass-glob');
 const sass = () => {
     return src(path.sass.src, {sourcemaps:true})
+        .pipe(sassGlob())
         .pipe(gsass())
         .pipe(autoprefixer())
         .pipe(shorthand())

@@ -4,6 +4,7 @@ const html = require('./tasks/html');
 const clear = require('./tasks/clear');
 const css = require('./tasks/css');
 const sass = require('./tasks/sass');
+const javascript= require('./tasks/javascript');
 const path = require("./config/path")
 const server = () => {
 
@@ -22,8 +23,10 @@ const watcher = () => {
 exports.watcher = watcher
 exports.css = css
 exports.sass = sass
+exports.clear = clear
+exports.javascript = javascript
 exports.dev = series(
     clear,
-    parallel(sass, html),
+    parallel(sass,javascript, html),
     parallel(watcher, server)
 )
