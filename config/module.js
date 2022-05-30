@@ -1,3 +1,5 @@
+const isProd = porcess.argv.includes('--production');
+const isDev=!isProd;
 const notify = require("gulp-notify");
 const error = {
     errorHandler: notify.onError(error => ({
@@ -6,5 +8,13 @@ const error = {
     }))
 
 }
+const webpack = {
+    mode: "development"
+}
 
 module.exports = error;
+module.exports = webpack;
+module.exports ={
+    isDev:isDev,
+    isProd:isProd
+}

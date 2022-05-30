@@ -9,12 +9,14 @@ const shorthand = require("gulp-shorthand");
 const csso = require("gulp-csso");
 const rename = require("gulp-rename");
 const media = require("gulp-group-css-media-queries"); 
+const webpCss =  require("gulp-webp-css");
 const css = () => {
     return src(path.css.src, {sourcemaps:true})
         .pipe(concat("main.css"))
         .pipe(importcss())
         .pipe(autoprefixer())
         .pipe(shorthand())
+        .pipe(webpCss())
         .pipe(media())
         .pipe(dest(path.css.dest, {sourcemaps:true}))
         .pipe(rename({suffix:".min"}))

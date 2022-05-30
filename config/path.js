@@ -24,6 +24,16 @@ module.exports = {
         src: pathSrc + "/js/*.js",
         watch: pathSrc + "/js/**/*.js",
         dest: pathDest + "/js"
+    },
+    img: {
+        src: pathSrc + "/img/*.{jpg,png,jpeg,gif,svg}",
+        watch: pathSrc + "/img/**/*.{jpg,png,jpeg,gif,svg}",
+        dest: pathDest + "/img"
+    },
+    fonts: {
+        src: pathSrc + "/fonts/*.{eot,ttf,otf,otc,ttc,ttc,woff,woff2,svg}",
+        watch: pathSrc + "/fonts/**/*.{eot,ttf,otf,otc,ttc,ttc,woff,woff2,svg}",
+        dest: pathDest + "/fonts"
     }
 
 }

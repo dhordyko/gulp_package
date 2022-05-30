@@ -9,6 +9,9 @@ body {
     background: red;
     font-size:$base-font-size;
 }
+.background-container{
+    background-image:url('../img/124107.jpg')
+}
 @include max700{
     p{
         width:50%;

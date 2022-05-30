@@ -7,14 +7,17 @@ const csso = require("gulp-csso");
 const rename = require("gulp-rename");
 const media = require("gulp-group-css-media-queries"); 
 var sassGlob = require('gulp-sass-glob');
+const webpCss =  require("gulp-webp-css");
 const sass = () => {
     return src(path.sass.src, {sourcemaps:true})
         .pipe(sassGlob())
         .pipe(gsass())
         .pipe(autoprefixer())
         .pipe(shorthand())
+        .pipe(webpCss())
         .pipe(media())
         .pipe(dest(path.sass.dest, {sourcemaps:true}))
+        .pipe(webpCss())
         .pipe(rename({suffix:".min"}))
         .pipe(csso())
         .pipe(dest(path.sass.dest, {sourcemaps:true}))
