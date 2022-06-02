@@ -8,18 +8,19 @@ const rename = require("gulp-rename");
 const media = require("gulp-group-css-media-queries"); 
 var sassGlob = require('gulp-sass-glob');
 const webpCss =  require("gulp-webp-css");
+const modul = require('../config/module')
 const sass = () => {
-    return src(path.sass.src, {sourcemaps:true})
+    return src(path.sass.src, {sourcemaps:modul.isDev})
         .pipe(sassGlob())
         .pipe(gsass())
         .pipe(autoprefixer())
         .pipe(shorthand())
         .pipe(webpCss())
         .pipe(media())
-        .pipe(dest(path.sass.dest, {sourcemaps:true}))
+        .pipe(dest(path.sass.dest, {sourcemaps:modul.isDev}))
         .pipe(webpCss())
         .pipe(rename({suffix:".min"}))
         .pipe(csso())
-        .pipe(dest(path.sass.dest, {sourcemaps:true}))
+        .pipe(dest(path.sass.dest, {sourcemaps:modul.isDev}))
 }
 module.exports = sass;

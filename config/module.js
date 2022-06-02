@@ -1,4 +1,4 @@
-const isProd = porcess.argv.includes('--production');
+const isProd = process.argv.includes("--production");
 const isDev=!isProd;
 const notify = require("gulp-notify");
 const error = {
@@ -9,7 +9,7 @@ const error = {
 
 }
 const webpack = {
-    mode: "development"
+    mode: isProd? "production" : "development"
 }
 
 module.exports = error;
