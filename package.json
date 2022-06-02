@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start" : "gulp",
+    "start": "gulp",
     "build": "gulp --production"
   },
   "browserslist": [
@@ -21,6 +21,7 @@
   "devDependencies": {
     "@babel/core": "^7.18.0",
     "@babel/preset-env": "^7.18.0",
+    "bootstrap": "^4.5.2",
     "browser-sync": "^2.27.10",
     "del": "^6.1.0",
     "gulp": "^4.0.2",
@@ -46,6 +47,8 @@
     "gulp-webp": "^4.0.1",
     "gulp-webp-css": "^1.1.0",
     "gulp-webp-html": "^1.0.2",
+    "jquery": "^1.11.1",
+    "path": "^0.12.7",
     "sass": "^1.52.1",
     "webpack": "^5.72.1",
     "webpack-stream": "^7.0.0"
